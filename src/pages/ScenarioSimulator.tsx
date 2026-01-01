@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
+import { ScenarioOverlay } from '@/components/portfolio/ScenarioOverlay';
 import { cn } from '@/lib/utils';
 import { vehicles, scenarioDefaults } from '@/data/mockData';
 
@@ -105,7 +106,7 @@ export default function ScenarioSimulator() {
     <AppLayout>
       <PageHeader title="Scenario Simulator" showControls={false} />
 
-      <div className="px-4 lg:px-6 py-6 space-y-6">
+      <div className="px-4 lg:px-6 py-6 space-y-6 lg:pr-96">
         <p className="text-sm text-muted-foreground">
           Adjust market variables to see how they would impact vehicle demand forecasts.
         </p>
@@ -303,6 +304,8 @@ export default function ScenarioSimulator() {
           </p>
         </section>
       </div>
+
+      <ScenarioOverlay />
     </AppLayout>
   );
 }

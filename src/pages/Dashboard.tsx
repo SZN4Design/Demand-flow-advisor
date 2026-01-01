@@ -6,7 +6,7 @@ import { VehicleCard } from '@/components/dashboard/VehicleCard';
 import { WhyDrawer } from '@/components/dashboard/WhyDrawer';
 import { DemandDriverCard } from '@/components/dashboard/DemandDriverCard';
 import { ActionPlanCard } from '@/components/dashboard/ActionPlanCard';
-import { CaseStudyPanel } from '@/components/dashboard/CaseStudyPanel';
+import { DashboardOverlay } from '@/components/portfolio/DashboardOverlay';
 import { 
   forecastSummary, 
   vehicles, 
@@ -38,9 +38,7 @@ export default function Dashboard() {
     <AppLayout>
       <PageHeader title="City Forecast Overview" />
       
-      <div className="px-4 lg:px-6 py-6 space-y-8">
-        <CaseStudyPanel />
-
+      <div className="px-4 lg:px-6 py-6 space-y-8 lg:pr-96">
         {/* Summary Cards */}
         <section>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
@@ -113,6 +111,8 @@ export default function Dashboard() {
         isOpen={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       />
+
+      <DashboardOverlay />
     </AppLayout>
   );
 }

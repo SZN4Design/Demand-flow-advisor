@@ -21,7 +21,7 @@ export default function Settings() {
             <div className="space-y-1">
               <Label className="text-base font-medium">Portfolio Mode</Label>
               <p className="text-sm text-muted-foreground">
-                Show "Portfolio Prototype" watermark and case study panel on dashboard
+                Show case study overlays with design rationale on each page
               </p>
             </div>
             <Switch
