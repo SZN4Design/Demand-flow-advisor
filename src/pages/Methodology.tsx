@@ -1,5 +1,6 @@
 import { AppLayout } from '@/components/layout/AppLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { MethodologyOverlay } from '@/components/portfolio/MethodologyOverlay';
 import { Target, BarChart3, Brain, Users, AlertCircle, ArrowRight } from 'lucide-react';
 
 export default function Methodology() {
@@ -7,7 +8,7 @@ export default function Methodology() {
     <AppLayout>
       <PageHeader title="Methodology" showControls={false} />
 
-      <div className="px-4 lg:px-6 py-6 space-y-8">
+      <div className="px-4 lg:px-6 py-6 space-y-8 lg:pr-96">
         {/* Hero */}
         <section className="text-center max-w-2xl mx-auto">
           <h1 className="text-2xl font-bold text-foreground mb-3">
@@ -205,6 +206,8 @@ export default function Methodology() {
           </div>
         </section>
       </div>
+
+      <MethodologyOverlay />
     </AppLayout>
   );
 }

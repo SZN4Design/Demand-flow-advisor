@@ -3,6 +3,7 @@ import { AppLayout } from '@/components/layout/AppLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, AlertTriangle, Info, Check, Filter } from 'lucide-react';
+import { AlertsOverlay } from '@/components/portfolio/AlertsOverlay';
 import { cn } from '@/lib/utils';
 import { alerts as initialAlerts } from '@/data/mockData';
 import { toast } from 'sonner';
@@ -52,7 +53,7 @@ export default function LiveAlerts() {
     <AppLayout>
       <PageHeader title="Live Alerts" showControls={false} />
 
-      <div className="px-4 lg:px-6 py-6 space-y-4">
+      <div className="px-4 lg:px-6 py-6 space-y-4 lg:pr-96">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-sm text-muted-foreground">
@@ -163,6 +164,8 @@ export default function LiveAlerts() {
           </div>
         )}
       </div>
+
+      <AlertsOverlay />
     </AppLayout>
   );
 }
