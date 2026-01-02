@@ -1,14 +1,16 @@
 import { AppLayout } from '@/components/layout/AppLayout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { MethodologyOverlay } from '@/components/portfolio/MethodologyOverlay';
+import { useApp } from '@/contexts/AppContext';
 import { Target, BarChart3, Brain, Users, AlertCircle, ArrowRight } from 'lucide-react';
 
 export default function Methodology() {
+  const { portfolioMode } = useApp();
   return (
     <AppLayout>
       <PageHeader title="Methodology" showControls={false} />
 
-      <div className="px-4 lg:px-6 py-6 space-y-8 lg:pr-96">
+      <div className={`px-4 lg:px-6 py-6 space-y-8 ${portfolioMode ? 'lg:pr-96' : ''}`}>
         {/* Hero */}
         <section className="text-center max-w-2xl mx-auto">
           <h1 className="text-2xl font-bold text-foreground mb-3">

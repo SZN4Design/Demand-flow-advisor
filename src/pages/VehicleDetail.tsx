@@ -5,12 +5,14 @@ import { Button } from '@/components/ui/button';
 import { ConfidenceChip, DemandTag } from '@/components/ui/chips';
 import { VehicleDetailOverlay } from '@/components/portfolio/VehicleDetailOverlay';
 import { vehicles } from '@/data/mockData';
+import { useApp } from '@/contexts/AppContext';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
 export default function VehicleDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { portfolioMode } = useApp();
   
   const vehicle = vehicles.find(v => v.id === id);
 
@@ -57,7 +59,7 @@ export default function VehicleDetail() {
         </Button>
       </div>
 
-      <div className="px-4 lg:px-6 py-6 space-y-6 lg:pr-96">
+      <div className={`px-4 lg:px-6 py-6 space-y-6 ${portfolioMode ? 'lg:pr-96' : ''}`}>
         {/* Hero Section */}
         <section className="card-elevated p-6">
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
