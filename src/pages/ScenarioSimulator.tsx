@@ -5,6 +5,7 @@ import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
 import { ScenarioOverlay } from '@/components/portfolio/ScenarioOverlay';
+import { useApp } from '@/contexts/AppContext';
 import { cn } from '@/lib/utils';
 import { vehicles, scenarioDefaults } from '@/data/mockData';
 
@@ -21,6 +22,7 @@ interface ScenarioState {
 }
 
 export default function ScenarioSimulator() {
+  const { portfolioMode } = useApp();
   const [scenario, setScenario] = useState<ScenarioState>({
     gasPrice: 0,
     interestRate: 0,
@@ -106,7 +108,7 @@ export default function ScenarioSimulator() {
     <AppLayout>
       <PageHeader title="Scenario Simulator" showControls={false} />
 
-      <div className="px-4 lg:px-6 py-6 space-y-6 lg:pr-96">
+      <div className={`px-4 lg:px-6 py-6 space-y-6 ${portfolioMode ? 'lg:pr-96' : ''}`}>
         <p className="text-sm text-muted-foreground">
           Adjust market variables to see how they would impact vehicle demand forecasts.
         </p>

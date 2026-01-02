@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, AlertTriangle, Info, Check, Filter } from 'lucide-react';
 import { AlertsOverlay } from '@/components/portfolio/AlertsOverlay';
+import { useApp } from '@/contexts/AppContext';
 import { cn } from '@/lib/utils';
 import { alerts as initialAlerts } from '@/data/mockData';
 import { toast } from 'sonner';
@@ -11,6 +12,7 @@ import { toast } from 'sonner';
 type Severity = 'High' | 'Medium' | 'Low';
 
 export default function LiveAlerts() {
+  const { portfolioMode } = useApp();
   const [alerts, setAlerts] = useState(initialAlerts);
   const [filter, setFilter] = useState<Severity | 'All'>('All');
 
@@ -53,7 +55,7 @@ export default function LiveAlerts() {
     <AppLayout>
       <PageHeader title="Live Alerts" showControls={false} />
 
-      <div className="px-4 lg:px-6 py-6 space-y-4 lg:pr-96">
+      <div className={`px-4 lg:px-6 py-6 space-y-4 ${portfolioMode ? 'lg:pr-96' : ''}`}>
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-sm text-muted-foreground">

@@ -21,7 +21,7 @@ import { toast } from 'sonner';
 export default function Dashboard() {
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { selectedCity } = useApp();
+  const { selectedCity, portfolioMode } = useApp();
 
   const cityName = cities.find(c => c.id === selectedCity)?.name || 'Toronto';
 
@@ -38,7 +38,7 @@ export default function Dashboard() {
     <AppLayout>
       <PageHeader title="City Forecast Overview" />
       
-      <div className="px-4 lg:px-6 py-6 space-y-8 lg:pr-96">
+      <div className={`px-4 lg:px-6 py-6 space-y-8 ${portfolioMode ? 'lg:pr-96' : ''}`}>
         {/* Summary Cards */}
         <section>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
